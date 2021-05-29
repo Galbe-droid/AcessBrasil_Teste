@@ -1,0 +1,53 @@
+﻿@model IEnumerable<AccessBrasil.Models.Carro>
+
+@{
+    ViewData["Title"] = "";
+}
+
+<h1>View</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.MarcaCodigo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Modelo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ano)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cor)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MarcaCodigo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Modelo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ano)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cor)
+            </td>
+            <td>
+                <a asp-action="Update" asp-route-id="@item.Codigo">Edit</a> |
+                <a asp-action="Look" asp-route-id="@item.Codigo">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Codigo">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
